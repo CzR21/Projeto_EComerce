@@ -52,21 +52,21 @@
         <form class="row g-3">
           <div class="col-md-6">
             <label for="inputNome" class="form-label" >Nome</label>
-            <input type="text" class="form-control" id="inputNome" required>
+            <input type="text" class="form-control" id="inputNome">
           </div>
           <div class="col-md-6">
             <label for="inputLastName" class="form-label">Sobrenome</label>
-            <input type="text" class="form-control" id="inputLastName" required>
+            <input type="text" class="form-control" id="inputLastName">
           </div>
           <div class="col-md-6">
             <label for="inputEmail" class="form-label">Email</label>
-            <input type="email" class="form-control" id="inputEmail" placeholder="exemplo@email.com" required>
+            <input type="email" class="form-control" id="inputEmail" placeholder="exemplo@email.com" onblur="validarEmail(this.value);">
           </div>
           
           <h5>Assunto e mensagem</h5>
           <div class="col-md-4">
-            <label class="form-label">Assunto</label>
-            <select class="form-select" aria-label="Default select example">
+            <label class="form-label" for="assunto">Assunto</label>
+            <select class="form-select" id="assunto" aria-label="Default select example">
               <option selected>Selecione</option>
               <option value="1">Elogio</option>
               <option value="2">Reclamação</option>
@@ -75,15 +75,17 @@
             </select>
           </div>
           <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Descrição</label>
-            <label for="exampleFormControlTextarea1" class="form-label"></label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  placeholder="Conte-nos mais..." required></textarea>
+            <label for="mensagem" class="form-label">Descrição</label>
+            <label for="mensagem" class="form-label"></label>
+            <textarea class="form-control" id="mensagem" rows="3"  placeholder="Conte-nos mais..."></textarea>
           </div>
           <div class="col-12" id="botão">
-            <button type="submit" class="btn btn-success">Enviar mensagem</button>
+            <button type="submit" onclick="validarContato()" class="btn btn-success">Enviar mensagem</button>
           </div>
         </div>
       </div>
+
+
       <footer class="text-muted py -5" id="rodapéformulário">
         <nav class="navbar navbar-expand-lg navbar-light bg-success">
           <div class="container">

@@ -195,14 +195,75 @@ function validarIdade(dataNasc){
     }
 }
 
+function validarContato(){
+    
+    let nome = document.getElementById("inputNome").value;
+    let sobrenome = document.getElementById("inputLastName").value;
+    let assunto = document.getElementById("assunto").value;
+    let mensagem = document.getElementById("mensagem").value;
+
+    if(nome == "" || sobrenome == "" || !validacao || assunto == "" || mensagem == ""){
+        alert ("formulario invalido");
+    }else{
+        alert("formulario valido");
+    }
+    
+}
 
 
 function validarFormulario(){
     
-    if(validacao){
-        alert("formulario valido");
-    }else{
+    let nome = document.getElementById("inputNome").value;
+    let numero = document.getElementById("inputNumero").value;
+
+    if(nome == "" || numero == "" || !validacao){
         alert ("formulario invalido");
+    }else{
+        alert("formulario valido");
     }
     
+}
+
+let n = 0;
+
+function carrossel(x){
+
+    let imagem = document.getElementById("carrossel");
+
+    if(x == 0){
+
+        if(n == 0){
+
+            imagem.src = 'Carrossel/Carrossel1.png';
+            n++;
+
+        }else if(n == 1){
+
+            imagem.src = 'Carrossel/Carrossel2.png';
+            n++;
+
+        }else{
+
+            imagem.src = 'Carrossel/Carrossel3.png';
+            n = 0;
+        }
+
+    }else{
+        
+        if(n == 0){
+
+            imagem.src = 'Carrossel/Carrossel1.png';
+            n = 2;
+
+        }else if(n == 1){
+
+            imagem.src = 'Carrossel/Carrossel2.png';
+            n--;
+
+        }else{
+
+            imagem.src = 'Carrossel/Carrossel3.png';
+            n--;
+        }
+    }
 }
