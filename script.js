@@ -319,8 +319,62 @@ prevButton.addEventListener('click',()=>{
 
     slides[currentSlideIndex].classList.add('carousel__item--viseible')
 })
+//###############
+//back to top
 
+// const toTop = document.querySelector(".to-top");
 
+// window.addEventListener("scroll", () => {
+//   if (window.pageYOffset > 100) {
+//     toTop.classList.add("active");
+//   } else {
+//     toTop.classList.remove("active");
+//   }
+// })
+
+const backToTopButton = document.querySelector("#back-to-top-btn");
+
+window.addEventListener("scroll", scrollFunction);
+
+function scrollFunction() {
+  if (window.pageYOffset > 300) { // Show backToTopButton
+    if(!backToTopButton.classList.contains("btnEntrance")) {
+      backToTopButton.classList.remove("btnExit");
+      backToTopButton.classList.add("btnEntrance");
+      backToTopButton.style.display = "block";
+    }
+  }
+  else { // Hide backToTopButton
+    if(backToTopButton.classList.contains("btnEntrance")) {
+      backToTopButton.classList.remove("btnEntrance");
+      backToTopButton.classList.add("btnExit");
+      setTimeout(function() {
+        backToTopButton.style.display = "none";
+      }, 250);
+    }
+  }
+}
+
+backToTopButton.addEventListener("click", smoothScrollBackToTop);
+
+// function backToTop() {
+//   window.scrollTo(0, 0);
+// }
+
+var btn = $('#button');
+
+$(window).scroll(function() {
+  if ($(window).scrollTop() > 300) {
+    btn.addClass('show');
+  } else {
+    btn.removeClass('show');
+  }
+});
+
+btn.on('click', function(e) {
+  e.preventDefault();
+  $('html, body').animate({scrollTop:0}, '300');
+});
 
 
 
