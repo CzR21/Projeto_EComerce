@@ -100,18 +100,24 @@ h1{
 
 .carousel {
     overflow: hidden;
-    max-width: 600px;
+    max-width: 35%;
     position: relative;
+
   }
   
   .carousel .carousel__item,
   .carousel .carousel__item--hidden {
     display: none;
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #777; */
+ 
   }
   
   .carousel .carousel__item img {
     width: 100%;
-    max-width: 600px;
+    max-width: 1280px;
     height: auto;
   }
   
@@ -130,25 +136,38 @@ h1{
   }
   
   .carousel .carousel__actions button {
-    border-radius: 50px;
+    border-radius: 50%;
     border: 0;
     font-weight: bold;
     cursor: pointer;
     width: 40px;
     height: 40px;
     color: #FFF;
-    background-color: #242424;
+    background-color: #777;
   }
   
   .carousel .carousel__actions button[data-js="carousel__button--prev"] {
-    margin-left: 20px;
+    margin-left: 3%;
+    
+    cursor: pointer;
+    transition: all 0.5s;
   }
   
   .carousel .carousel__actions button[data-js="carousel__button--next"] {
-    margin-right: 20px;
+    margin-right: 3%;
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+  .carousel .carousel__actions button[data-js="carousel__button--next"]:hover
+  {
+    transform: scale(1.2);
+  }
+  .carousel .carousel__actions button[data-js="carousel__button--prev"]:hover
+  {
+    transform: scale(1.2);
   }
   
-  @keyframes fadeVisibility {
+  /* @keyframes fadeVisibility {
     0% {
       opacity: 0;
     }
@@ -156,7 +175,7 @@ h1{
       opacity: 1;
       transform: opacity linear;
     }
-  }
+  } */
 
 /* .body_carousel
 {
