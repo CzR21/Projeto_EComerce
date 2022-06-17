@@ -206,3 +206,82 @@ function validarFormulario(){
     }
     
 }
+
+
+
+//##########################################################################################################
+//Script do carousel
+
+var indicators = document.querySelector('.indicators')
+var qtde = document.querySelectorAll('.carousels .img_carousel')
+var actual = 0
+var image = document.getElementById('atual')
+var next = document.getElementById('next')
+var back = document.getElementById('back')
+var rolar = true
+
+for(let i=0; i < qtde.length; i++)
+{
+    var div = document.createElement('div')
+    div.id = indicators.appendChild(div)
+}
+document.getElementById('0').classList.add('img_Atcual')
+
+var pos = document.querySelectorAll('.indicators div')
+
+for(let i=o; i < pos.length; i++)
+{
+    pos[i].addEventListener('click', function()
+    {
+        actual = pos[i].id
+        rolar=false
+        carousel()
+    })
+}
+
+back.addEventListener('click', ()=>
+{
+    actual--
+    rolar=false
+    carousel()
+})
+
+next.addEventListener('click', ()=>
+{
+    actual++
+    rolar=false
+    carousel()
+})
+
+function carousel()
+{
+    if(actual >= qtde.length) //para voltar a imagem inicial
+    {
+        actual = 0
+    }
+    else if(actual < 0)
+    {
+        actual = qtde.length-1  //voltar para ultima imagem
+    }
+    document.querySelectorAll('.img_Actual').classList.remove('img_Actual')
+    image.style.marginLeft = -1024*actual+'px'
+    document.getElementById(actual).classList.add('img_Actual')
+}
+carousel()
+setInterval(()=>
+{
+    if(rolar)
+    {
+        actual++
+        carousel()
+    }
+    else
+    {
+        rolar = true
+    }
+    
+},400)
+
+
+
+
