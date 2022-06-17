@@ -206,3 +206,174 @@ function validarFormulario(){
     }
     
 }
+
+
+
+//##########################################################################################################
+//Script do carousel
+
+// var indicators = document.querySelector('.indicators')
+// var qtde = document.querySelectorAll('.carousels .img_carousel')
+// var actual = 0
+// var image = document.getElementById('atual')
+// var next = document.getElementById('next')
+// var back = document.getElementById('back')
+// var rolar = true
+
+// for(let i=0; i < qtde.length; i++)
+// {
+//     var div = document.createElement('div')
+//     div.id = indicators.appendChild(div)
+// }
+// document.getElementById('0').classList.add('img_Atcual')
+
+// var pos = document.querySelectorAll('.indicators div')
+
+// for(let i=o; i < pos.length; i++)
+// {
+//     pos[i].addEventListener('click', function()
+//     {
+//         actual = pos[i].id
+//         rolar=false
+//         carousel()
+//     })
+// }
+
+// back.addEventListener('click', ()=>
+// {
+//     actual--
+//     rolar=false
+//     carousel()
+// })
+
+// next.addEventListener('click', ()=>
+// {
+//     actual++
+//     rolar=false
+//     carousel()
+// })
+
+// function carousel()
+// {
+//     if(actual >= qtde.length) //para voltar a imagem inicial
+//     {
+//         actual = 0
+//     }
+//     else if(actual < 0)
+//     {
+//         actual = qtde.length-1  //voltar para ultima imagem
+//     }
+//     document.querySelectorAll('.img_Actual').classList.remove('img_Actual')
+//     image.style.marginLeft = -1024*actual+'px'
+//     document.getElementById(actual).classList.add('img_Actual')
+// }
+// carousel()
+// setInterval(()=>
+// {
+//     if(rolar)
+//     {
+//         actual++
+//         carousel()
+//     }
+//     else
+//     {
+//         rolar = true
+//     }
+    
+// },4000)
+
+let n = 0;
+
+function carousel(x){
+
+    let imagem = document.getElementById("carousel");
+
+    if(x == 0){
+
+        if(n == 0){
+
+            imagem.src = 'img1.png.jpg';
+            n++;
+
+        }else if(n == 1){
+
+            imagem.src = 'img2.png.jpg';
+            n++;
+
+        }else{
+
+            imagem.src = 'lixeira.png';
+            n = 0;
+        }
+
+    }else{
+        
+        if(n == 0){
+
+            imagem.src = 'img1.png.jpg';
+            n = 2;
+
+        }else if(n == 1){
+
+            imagem.src = 'img2.png.jpg';
+            n--;
+
+        }else{
+
+            imagem.src = 'lixeira.png';
+            n--;
+        }
+    }
+}
+
+
+//###############
+//back to top
+
+
+// const backToTopButton = document.querySelector("#back-to-top-btn");
+
+// window.addEventListener("scroll", scrollFunction);
+
+// function scrollFunction() {
+//   if (window.pageYOffset > 300) { // mostrar backToTopButton
+//     if(!backToTopButton.classList.contains("btnEntrance")) {
+//       backToTopButton.classList.remove("btnExit");
+//       backToTopButton.classList.add("btnEntrance");
+//       backToTopButton.style.display = "block";
+//     }
+//   }
+//   else { // esconder backToTopButton
+//     if(backToTopButton.classList.contains("btnEntrance")) {
+//       backToTopButton.classList.remove("btnEntrance");
+//       backToTopButton.classList.add("btnExit");
+//       setTimeout(function() {
+//         backToTopButton.style.display = "none";
+//       }, 250);
+//     }
+//   }
+// }
+
+// backToTopButton.addEventListener("click", smoothScrollBackToTop);
+
+// function backToTop() {
+//   window.scrollTo(0, 0);
+// }
+
+var btn = $('#button');
+
+$(window).scroll(function() {
+  if ($(window).scrollTop() > 300) {
+    btn.addClass('show');
+  } else {
+    btn.removeClass('show');
+  }
+});
+
+btn.on('click', function(e) {
+  e.preventDefault();
+  $('html, body').animate({scrollTop:0}, '300');
+});
+
+
+
