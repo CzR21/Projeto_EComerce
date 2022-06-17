@@ -282,80 +282,79 @@ function validarFormulario(){
     
 // },4000)
 
-const slides = document.querySelectorAll('[data-js="carousel__item"]') //armazenar referencia das divs
-const nextButton = document.querySelector('[data-js="carousel__button--next"]') //executar seta direita,
-const prevButton = document.querySelector('[data-js="carousel__button--prev"]')//executar seta esquerda
+let n = 0;
 
-let currentSlideIndex = 0
+function carousel(x){
 
-nextButton.addEventListener('click', ()=>{
-    if(currentSlideIndex === slides.length - 1) //-1 para se o carousel tiver mais slides futuramente a função continuar efetiva
-    {
-        currentSlideIndex = 0
-    } else
-    {
-        currentSlideIndex++
+    let imagem = document.getElementById("carousel");
+
+    if(x == 0){
+
+        if(n == 0){
+
+            imagem.src = 'img1.png.jpg';
+            n++;
+
+        }else if(n == 1){
+
+            imagem.src = 'img2.png.jpg';
+            n++;
+
+        }else{
+
+            imagem.src = 'lixeira.png';
+            n = 0;
+        }
+
+    }else{
+        
+        if(n == 0){
+
+            imagem.src = 'img1.png.jpg';
+            n = 2;
+
+        }else if(n == 1){
+
+            imagem.src = 'img2.png.jpg';
+            n--;
+
+        }else{
+
+            imagem.src = 'lixeira.png';
+            n--;
+        }
     }
+}
 
-    slides.forEach(slide =>{
-        slide.classList.remove('carousel__item--viseible')//viajar e remover pelo carousel
-    })
 
-    slides[currentSlideIndex].classList.add('carousel__item--viseible')
-})
-
-prevButton.addEventListener('click',()=>{
-    if(currentSlideIndex === 0)
-    {
-        currentSlideIndex = slides.length - 1
-    }else
-    {
-        currentSlideIndex--
-    }
-
-    slides.forEach(slide => {
-        slide.classList.remove('carousel__item--viseible')
-    })
-
-    slides[currentSlideIndex].classList.add('carousel__item--viseible')
-})
 //###############
 //back to top
 
-// const toTop = document.querySelector(".to-top");
 
-// window.addEventListener("scroll", () => {
-//   if (window.pageYOffset > 100) {
-//     toTop.classList.add("active");
-//   } else {
-//     toTop.classList.remove("active");
+// const backToTopButton = document.querySelector("#back-to-top-btn");
+
+// window.addEventListener("scroll", scrollFunction);
+
+// function scrollFunction() {
+//   if (window.pageYOffset > 300) { // mostrar backToTopButton
+//     if(!backToTopButton.classList.contains("btnEntrance")) {
+//       backToTopButton.classList.remove("btnExit");
+//       backToTopButton.classList.add("btnEntrance");
+//       backToTopButton.style.display = "block";
+//     }
 //   }
-// })
+//   else { // esconder backToTopButton
+//     if(backToTopButton.classList.contains("btnEntrance")) {
+//       backToTopButton.classList.remove("btnEntrance");
+//       backToTopButton.classList.add("btnExit");
+//       setTimeout(function() {
+//         backToTopButton.style.display = "none";
+//       }, 250);
+//     }
+//   }
+// }
 
-const backToTopButton = document.querySelector("#back-to-top-btn");
-
-window.addEventListener("scroll", scrollFunction);
-
-function scrollFunction() {
-  if (window.pageYOffset > 300) { // Show backToTopButton
-    if(!backToTopButton.classList.contains("btnEntrance")) {
-      backToTopButton.classList.remove("btnExit");
-      backToTopButton.classList.add("btnEntrance");
-      backToTopButton.style.display = "block";
-    }
-  }
-  else { // Hide backToTopButton
-    if(backToTopButton.classList.contains("btnEntrance")) {
-      backToTopButton.classList.remove("btnEntrance");
-      backToTopButton.classList.add("btnExit");
-      setTimeout(function() {
-        backToTopButton.style.display = "none";
-      }, 250);
-    }
-  }
-}
-
-backToTopButton.addEventListener("click", smoothScrollBackToTop);
+// backToTopButton.addEventListener("click", smoothScrollBackToTop);
 
 // function backToTop() {
 //   window.scrollTo(0, 0);
