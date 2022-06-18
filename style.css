@@ -114,6 +114,8 @@ h1{
     width: 75%;
     overflow: hidden;
     border-radius: 1% ;
+    margin-left: 1%;
+    margin-right: 1%;
 } 
 
   .carousel__button--prev{
