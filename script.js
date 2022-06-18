@@ -292,17 +292,17 @@ function carousel(x){
 
         if(n == 0){
 
-            imagem.src = 'img1.png.jpg';
+            imagem.src = 'iphone13.png';
             n++;
 
         }else if(n == 1){
 
-            imagem.src = 'img2.png.jpg';
+            imagem.src = 'S20.png';
             n++;
 
         }else{
 
-            imagem.src = 'lixeira.png';
+            imagem.src = 'note9.png';
             n = 0;
         }
 
@@ -310,17 +310,17 @@ function carousel(x){
         
         if(n == 0){
 
-            imagem.src = 'img1.png.jpg';
+            imagem.src = 'iphone13.png';
             n = 2;
 
         }else if(n == 1){
 
-            imagem.src = 'img2.png.jpg';
+            imagem.src = 'S20.png';
             n--;
 
         }else{
 
-            imagem.src = 'lixeira.png';
+            imagem.src = 'note9.png';
             n--;
         }
     }

@@ -97,56 +97,24 @@ h1{
 {
     text-align: center;
 }
-
-.carousel {
-    overflow: hidden;
-    max-width: 35%;
-    position: relative;
-
-  }
-  
-  /* .carousel 
-    width: 100%;
-    max-width: 1280px;
-    height: auto;
-  }
-  
-  .carousel 
-    display: block;
-    animation: fadeVisibility 0.5s;
-  }*/
-  
+ 
   .body_carousel
   {
     display: flex;
     align-items: center;
     justify-content: center;
     background:rgba(25,135,84, 0.159);
+    width: 100%;
+    
   }
 
-  .carousel
+  #carousel
 {
-    box-shadow: 2px 2px 4px black;
-    height: 600px;
-    width: 1000px;
+    box-shadow: 1px 1px 2px black;
+    width: 75%;
     overflow: hidden;
     border-radius: 1% ;
-    transition: all 0.5s;
-    background-color: #777;
-}
-
-  /* .carousel{ 
-     display: flex; 
-      width: 100%;
-     /* justify-content: center;  */
-     /* position: center; 
-     border-top: 50%; 
-      transform: translateX(-50%);  
-    max-width: 5000px; */
-    /* height: 100%; */
-    /* background-color: #777; 
-  }*/
- 
+} 
 
   .carousel__button--prev{
     margin-left: 3%;
