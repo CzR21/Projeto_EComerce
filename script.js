@@ -282,83 +282,58 @@ function validarFormulario(){
     
 // },4000)
 
-let n = 0;
+let n = 1;
+var rolar = true;
 
 function carousel(x){
 
     let imagem = document.getElementById("carousel");
 
-    if(x == 0){
+    if(x == 1){
 
         if(n == 0){
 
             imagem.src = 'iphone13.png';
+            console.log(n);
             n++;
 
         }else if(n == 1){
 
             imagem.src = 'S20.png';
+            console.log(n);
             n++;
 
-        }else{
-
+        }else if(n ==2){
             imagem.src = 'note9.png';
+            console.log(n);
             n = 0;
         }
 
+
     }else{
-        
         if(n == 0){
 
             imagem.src = 'iphone13.png';
-            n = 2;
+            console.log(n);
+            n=2;
 
         }else if(n == 1){
 
             imagem.src = 'S20.png';
+            console.log(n);
             n--;
 
-        }else{
-
+        }else if(n ==2){
             imagem.src = 'note9.png';
-            n--;
+            console.log(n);
+            n --;
         }
+        
     }
 }
 
-
 //###############
 //back to top
-
-
-// const backToTopButton = document.querySelector("#back-to-top-btn");
-
-// window.addEventListener("scroll", scrollFunction);
-
-// function scrollFunction() {
-//   if (window.pageYOffset > 300) { // mostrar backToTopButton
-//     if(!backToTopButton.classList.contains("btnEntrance")) {
-//       backToTopButton.classList.remove("btnExit");
-//       backToTopButton.classList.add("btnEntrance");
-//       backToTopButton.style.display = "block";
-//     }
-//   }
-//   else { // esconder backToTopButton
-//     if(backToTopButton.classList.contains("btnEntrance")) {
-//       backToTopButton.classList.remove("btnEntrance");
-//       backToTopButton.classList.add("btnExit");
-//       setTimeout(function() {
-//         backToTopButton.style.display = "none";
-//       }, 250);
-//     }
-//   }
-// }
-
-// backToTopButton.addEventListener("click", smoothScrollBackToTop);
-
-// function backToTop() {
-//   window.scrollTo(0, 0);
-// }
 
 var btn = $('#button');
 
@@ -374,6 +349,7 @@ btn.on('click', function(e) {
   e.preventDefault();
   $('html, body').animate({scrollTop:0}, '300');
 });
+
 
 
 
