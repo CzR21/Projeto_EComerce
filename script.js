@@ -1,5 +1,17 @@
 let validacao = false;
 
+let login = localStorage.getItem('login');
+
+if(login){
+
+    document.getElementById("login").disabled = "true";
+
+}else{
+
+    document.getElementById("login").disabled = "false";
+
+}
+
 function validarSenha(senha){
     
     let x = document.getElementById("inputSenha");
@@ -211,59 +223,201 @@ function validarContato(){
 }
 
 
+
+
 function validarFormulario(){
     
     let nome = document.getElementById("inputNome").value;
     let numero = document.getElementById("inputNumero").value;
 
     if(nome == "" || numero == "" || !validacao){
-        alert ("formulario invalido");
+        console.log("formulario invalido");
     }else{
-        alert("formulario valido");
+        console.log("formulario valido");
+        x.classList.add("border-danger");
+        cadastrarUsuario();
+        window.location.href = "home.html";
     }
     
 }
 
-let n = 0;
+function cadastrarUsuario(){
 
-function carrossel(x){
+    let email = document.getElementById("inputEmail").value;
+    let senha = document.getElementById("inputSenha").value;
 
-    let imagem = document.getElementById("carrossel");
+    let credenciais = {Email: email, Senha: senha}
 
-    if(x == 0){
+    localStorage.setItem('credenciais', JSON.stringify(credenciais));
+    localStorage.setItem('login', false);
+}
+
+function logar(){
+
+    let emailString = document.getElementById("inputEmailLogin").value;
+    let senhaString = document.getElementById("inputSenhaLogin").value;
+
+    let email = document.getElementById("inputEmailLogin");
+    let senha = document.getElementById("inputSenhaLogin");
+
+    let credenciaisString = localStorage.getItem('credenciais');
+
+    let credenciaisObj = JSON.parse(credenciaisString);
+
+    if(credenciaisObj.Email == emailString && credenciaisObj.Senha == senhaString){
+        console.log("Login valido");
+        localStorage.setItem('login', true);
+
+        window.Location.href = "home.html";
+
+    }else{
+        console.log("Login invalido");
+        email.classList.add("border-danger");
+        senha.classList.add("border-danger");
+    }
+
+}
+
+
+function sortListDir() {
+    var list, i, switching, b, shouldSwitch, dir, switchcount = 0;
+    list = document.getElementById("sort");
+    switching = true;
+    // Set the sorting direction to ascending:
+    dir = "asc";
+    // Make a loop that will continue until no switching has been done:
+    while (switching) {
+      // Start by saying: no switching is done:
+      switching = false;
+      b = list.getElementsByTagName("h5");
+      // Loop through all list-items:
+      for (i = 0; i < (b.length - 1); i++) {
+        // Start by saying there should be no switching:
+        shouldSwitch = false;
+        /* Check if the next item should switch place with the current item,
+        based on the sorting direction (asc or desc): */
+        if (dir == "asc") {
+          if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
+            /* If next item is alphabetically lower than current item,
+            mark as a switch and break the loop: */
+            shouldSwitch = true;
+            break;
+          }
+        } else if (dir == "desc") {
+          if (b[i].innerHTML.toLowerCase() < b[i + 1].innerHTML.toLowerCase()) {
+            /* If next item is alphabetically higher than current item,
+            mark as a switch and break the loop: */
+            shouldSwitch= true;
+            break;
+          }
+        }
+      }
+      if (shouldSwitch) {
+        /* If a switch has been marked, make the switch
+        and mark that a switch has been done: */
+        b[i].parentNode.insertBefore(b[i + 1], b[i]);
+        switching = true;
+        // Each time a switch is done, increase switchcount by 1:
+        switchcount ++;
+      } else {
+        /* If no switching has been done AND the direction is "asc",
+        set the direction to "desc" and run the while loop again. */
+        if (switchcount == 0 && dir == "asc") {
+          dir = "desc";
+          switching = true;
+        }
+      }
+    }
+  }
+  
+  
+  function addcarrinho(produto, qtd, valor, posicao){
+  
+      localStorage.setItem("produto" + posicao, produto);
+      localStorage.setItem("qtd" + posicao, qtd);
+      valor = valor * qtd;
+      localStorage.setItem("valor" + posicao, valor);
+      alert("Produto adicionado ao carrinho!");
+  
+  }
+  
+  
+  
+   var total = 0; // variável que retorna o total dos produtos que estão na LocalStorage.
+   var i = 0;     // variável que irá percorrer as posições
+   var valor = 0; // variável que irá receber o preço do produto convertido em Float.
+   
+   for(i=1; i<=99; i++) // verifica até 99 produtos registrados na localStorage
+   {
+       var prod = localStorage.getItem("produto" + i + ""); // verifica se há recheio nesta posição. 
+       if(prod != null) 
+       {  
+           // exibe os dados da lista dentro da div itens
+           document.getElementById("itens").innerHTML += localStorage.getItem("qtd" + i) + " x ";
+           document.getElementById("itens").innerHTML += localStorage.getItem("produto" + i);
+           document.getElementById("itens").innerHTML += " ";
+           document.getElementById("itens").innerHTML += "R$: " + localStorage.getItem("valor" + i) + "<hr>";
+           
+           // calcula o total dos recheios
+           valor = parseFloat(localStorage.getItem("valor" + i)); // valor convertido com o parseFloat()
+           total = (total + valor); // arredonda para 2 casas decimais com o .toFixed(2)
+       }
+   } 
+
+
+   let n = 1;
+var rolar = true;
+
+function carousel(x){
+
+    let imagem = document.getElementById("carousel");
+
+
+    if(x == 1){
 
         if(n == 0){
 
-            imagem.src = 'Carrossel/Carrossel1.png';
+            imagem.src = 'iphone13.png';
+            console.log(n);
             n++;
 
         }else if(n == 1){
 
-            imagem.src = 'Carrossel/Carrossel2.png';
+            imagem.src = 'S20.png';
+            a.href = "galaxyS20.html"
+            console.log(n);
             n++;
 
-        }else{
-
-            imagem.src = 'Carrossel/Carrossel3.png';
+        }else if(n ==2){
+            imagem.src = 'note9.png';
+            a.href = "redminote9.html"
+            console.log(n);
             n = 0;
         }
 
+
     }else{
-        
         if(n == 0){
 
-            imagem.src = 'Carrossel/Carrossel1.png';
-            n = 2;
+            imagem.src = 'iphone13.png';
+            console.log(n);
+            n=2;
 
         }else if(n == 1){
 
-            imagem.src = 'Carrossel/Carrossel2.png';
+            imagem.src = 'S20.png';
+            console.log(n);
             n--;
 
-        }else{
-
-            imagem.src = 'Carrossel/Carrossel3.png';
-            n--;
+        }else if(n ==2){
+            imagem.src = 'note9.png';
+            console.log(n);
+            n --;
         }
+        
     }
 }
+
+//###############
+//back to top
+
