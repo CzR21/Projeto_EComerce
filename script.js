@@ -292,7 +292,6 @@ function carousel(x){
     if(x == 1){
 
         if(n == 0){
-
             imagem.src = 'iphone13.png';
             console.log(n);
             n++;
@@ -349,6 +348,8 @@ btn.on('click', function(e) {
   e.preventDefault();
   $('html, body').animate({scrollTop:0}, '300');
 });
+
+
 
 
 
